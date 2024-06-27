@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Booking.html">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ParkInfo.html">Park Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="booking-list">
+            <h2>Bookings</h2>
+            <table id="booking-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Day</th>
+                        <th>Ride</th>
+                        <th>Reviewer</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Booking rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Add Booking Modal -->
+    <div id="add-book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Booking</h2>
+            <form id="add-book-form">
+                <input type="number" id="rating" name="rating" min="1" max="10000" placeholder="ID" required>
+                <select id="options" name="options">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+                <select id="adventure-ride" name="Adventure Ride">
+                    <option value="Iron Gazi">Iron Gazi</option>
+                    <option value="Cheetah Hunt">Cheetah Hunt</option>
+                    <option value="Shakira">Shakira</option>
+                    <option value="Cobra">Cobra</option>
+                    <option value="Safari">Safari</option>
+                    <option value="Blue Sea">Blue Sea</option>
+                </select>
+                <input type="text" id="reviewer" name="reviewer" placeholder="Your Name" required>
+                <button type="submit">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Booking Modal -->
+    <div id="edit-book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Booking</h2>
+            <form id="edit-book-form">
+                <input type="number" id="edit-rating" name="rating" min="1" max="10000" placeholder="ID" required>
+                <select id="edit-options" name="options">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+                <select id="edit-adventure-ride" name="Adventure Ride">
+                    <option value="Iron Gazi">Iron Gazi</option>
+                    <option value="Cheetah Hunt">Cheetah Hunt</option>
+                    <option value="Shakira">Shakira</option>
+                    <option value="Cobra">Cobra</option>
+                    <option value="Safari">Safari</option>
+                    <option value="Blue Sea">Blue Sea</option>
+                </select>
+                <input type="text" id="edit-reviewer" name="reviewer" placeholder="Your Name" required>
+                <button type="submit">Update Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

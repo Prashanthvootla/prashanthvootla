@@ -1,0 +1,131 @@
+﻿/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f4f4f4 0%, #ffffff 100%);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background: #004a36; /* Primary Color */
+    color: #fff;
+    padding-top: 10px;
+    min-height: 90px;
+    border-bottom: #cccccc solid 3px; /* Accent Color for contrast */
+}
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px;
+    }
+
+    header nav {
+        text-align: center;
+    }
+
+    header a:hover {
+        color: #cccccc; /* Accent Color */
+    }
+
+nav {
+    text-align: center;
+    background-color: #004a36; /* Updated to match styles1.css */
+    padding: 10px 0;
+}
+
+    nav ul {
+        list-style: none;
+    }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+    nav a.active {
+        color: #cccccc;
+        background-color: #006747;
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase; /* Added to match styles1.css */
+        font-size: 16px; /* Ensured consistency */
+        /* ... other styles ... */
+    }
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.main-heading h1 {
+    text-align: center;
+    margin: 40px 0;
+    color: #333; /* Secondary Color for texts */
+}
+
+
+
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-image {
+    height: 100%;
+    width: 100%; /* Full width */
+    display: block; /* Ensures no extra space around the image container */
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+            background-repeat: no-repeat;
+}
+
+    .header-image img {
+        width: 100%;
+        height: auto;
+        max-height: 400px; /* Reducing the maximum height for the image */
+        object-fit: cover; /* Cover the area without losing aspect ratio */
+    }
+
+
+main h1 {
+    color: #006747; /* USF green color */
+    margin-bottom: 20px;
+    font-size: 2em; /* Larger font size for main heading */
+}
+
+#featured-businesses {
+    background-color: #eaeaea;
+    padding: 20px;
+    margin-top: 20px; /* Add some space between sections */
+}
+
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px; /* Space above footer */
+}

@@ -1,0 +1,213 @@
+﻿/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* This ensures that padding and borders don't add extra width */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f4f4f4 0%, #ffffff 100%);
+    line-height: 1.6;
+}
+
+header {
+    background: #004a36; /* Primary Color */
+    color: #fff;
+    padding: 10px 0; /* Top and bottom padding */
+    min-height: 70px;
+    border-bottom: #cccccc solid 3px; /* Accent Color for contrast */
+}
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        list-style: none;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px;
+    }
+
+    header nav {
+        text-align: center;
+    }
+
+    header a:hover {
+        color: #cccccc; /* Accent Color */
+    }
+
+nav {
+    background-color: #004a36;
+    padding: 10px 0;
+}
+
+    nav ul {
+        list-style: none;
+    }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+    nav a.active, nav a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+        nav a:hover {
+            color: #cccccc;
+            background-color: #006747;
+        }
+
+main {
+    padding: 20px; /* Padding inside main */
+    text-align: center;
+}
+
+.main-heading h1 {
+    text-align: center;
+    margin: 40px 0;
+    color: #333; /* Secondary Color for texts */
+}
+
+#business-list {
+    width: 100%; /* Set to 100% to use full width */
+    padding: 20px; /* Padding inside the business list */
+}
+
+.business-item {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    margin: 10px 0; /* Adjusted margin */
+    padding: 20px; /* Padding inside business item */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .business-item .business-image {
+        width: 100%; /* Full width for images */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 5px;
+    }
+
+    .business-item .business-info {
+        padding: 10px;
+    }
+
+        .business-item .business-info h3 {
+            color: #004a36; /* Primary Color for business name */
+        }
+
+        .business-item .business-info p {
+            margin: 5px 0;
+        }
+
+    .business-item .business-link {
+        color: #004a36; /* Primary Color for links */
+        text-decoration: none;
+    }
+
+        .business-item .business-link:hover {
+            text-decoration: underline;
+        }
+
+button, .business-link {
+    background-color: #004a36; /* Primary Color */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+    button:hover, .business-link:hover {
+        background-color: white;
+        color: #004a36;
+        border: 1px solid #004a36;
+    }
+
+.business-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .business-item:hover {
+        transform: perspective(1000px) rotateX(5deg) translateZ(20px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+footer {
+    background: #333; /* Secondary Color */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+    footer p {
+        margin: 0;
+    }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centered in the viewport */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjusted width */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover, .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/* Add any additional custom styles below */
+
+/* ... Additional responsive design adjustments ... */
+@media (min-width: 768px) {
+    .business-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .business-item .business-image {
+            flex-basis: 200px; /* Flex basis for image */
+            height: 120px;
+        }
+
+        .business-item .business-info {
+            flex-grow: 1; /* Business info takes remaining space */
+        }
+}
+
+/* Consider any other responsive adjustments you might need */

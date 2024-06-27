@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan your bookings</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Booking.html">Booking</a></li>
+                <li><a href="ParkInfo.html">Park Info</a></li>
+                <li><a href="aboutus.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="business-details">
+            <h2>Plan your Bookings</h2>
+        </section>
+
+        <section class="charts-section">
+            <h2>Data Visualizations</h2>
+            <div>
+                <h3>Weekdays Bookings</h3>
+                <canvas id="weekdaysBookingsChart"></canvas>
+            </div>
+            <div>
+                <h3>Highest Ride Bookings</h3>
+                <canvas id="highestRideBookingsChart"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="chart.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Check if bookings data exists in localStorage
+                    if (localStorage.getItem('bookings')) {
+                        const bookings = JSON.parse(localStorage.getItem('bookings'));
+
+                        // Example: Calculate bookings by weekday
+                        const weekdayBookings = {
+                            Monday: 0,
+                            Tuesday: 0,
+                            Wednesday: 0,
+                            Thursday: 0,
+                            Friday: 0,
+                            Saturday: 0,
+                            Sunday: 0
+                        };
+
+                        bookings.forEach(booking => {
+                            if (weekdayBookings.hasOwnProperty(booking.day)) {
+                                weekdayBookings[booking.day]++;
+                            }
+                        });
+
+                        // Example: Find ride with highest bookings
+                        const rideBookings = {};
+                        bookings.forEach(booking => {
+                            if (!rideBookings[booking.ride]) {
+                                rideBookings[booking.ride] = 0;
+                            }
+                            rideBookings[booking.ride]++;
+                        });
+
+                        // Convert rideBookings object to array for easier manipulation
+                        const rideBookingsArray = Object.entries(rideBookings);
+
+                        // Sort rideBookingsArray by number of bookings in descending order
+                        rideBookingsArray.sort((a, b) => b[1] - a[1]);
+
+                        // Get the ride with highest bookings
+                        const highestRide = rideBookingsArray.length > 0 ? rideBookingsArray[0][0] : 'N/A';
+
+                        // Display data in console (optional)
+                        console.log('Weekday bookings:', weekdayBookings);
+                        console.log('Ride bookings:', rideBookings);
+                        console.log('Highest ride:', highestRide);
+
+                        // Example: Render charts using Chart.js
+                        renderWeekdayBookingsChart(weekdayBookings);
+                        renderHighestRideChart(highestRide);
+                    } else {
+                        console.log('No bookings found in localStorage.');
+                    }
+                });
+
+                // Function to render weekday bookings chart
+                function renderWeekdayBookingsChart(weekdayBookings) {
+                    const ctx = document.getElementById('weekdaysBookingsChart');
+                    if (!ctx) return; // Check if canvas element exists
+
+                    const chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(weekdayBookings),
+                            datasets: [{
+                                label: 'Bookings by Weekday',
+                                data: Object.values(weekdayBookings),
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Function to render highest ride bookings chart
+                function renderHighestRideChart(highestRide) {
+                    const ctx = document.getElementById('highestRideBookingsChart');
+                    if (!ctx) return; // Check if canvas element exists
+
+                    const chart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: [highestRide, 'Other Rides'],
+                            datasets: [{
+                                label: 'Highest Ride Bookings',
+                                data: [1, 1], // Placeholder data for illustration
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+        </section>
+    </main>
+</body>
+</html>
